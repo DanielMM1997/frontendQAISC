@@ -1,5 +1,6 @@
 import { Component, AfterViewInit  } from '@angular/core';
 import * as L from 'leaflet';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-map',
@@ -14,13 +15,12 @@ export class MapComponent implements AfterViewInit  {
   ngAfterViewInit(): void {
     this.initMap();
   }
+  open(): void {
+    console.log('abierto')
+  }
 
   private initMap(): void {
     this.map = L.map('map').setView([27.950, -15.60], 10);
-    // this.map = L.map('map', {
-    //   center: [ 27.950, -15.800 ],
-    //   zoom: 10.5
-    // });
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       // attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       maxZoom: 18,
@@ -43,12 +43,35 @@ export class MapComponent implements AfterViewInit  {
       iconUrl: '/assets/imgs/amarillo.png',
       iconSize: [24, 24],
     });
-    // C:/Users/danie/Documents/AAPUNTES/Cuarto/TFG/frontendQAISC/src/assets/imgs/verde.png
-    var camara_Nelson_Mandela = L.marker([28.1622092, -15.4014788], {icon: cam_amarillo}).addTo(this.map).bindPopup("Puerto Nelson Mandela");
-    var camara_playa_laja = L.marker([28.0600000, -15.4200000], {icon: cam_gris}).addTo(this.map).bindPopup("Playa de la Laja");
-    var camara_telde = L.marker([27.991224, -15.3674457], {icon: cam_verde}).addTo(this.map).bindPopup("Telde");
-    var camara_puerto_arguineguin = L.marker([27.7569610, -15.6835057], {icon: cam_verde}).addTo(this.map).bindPopup("Puerto de Arguineguin");
-    var camara_puerto_anfi = L.marker([27.7720116, -15.7000000], {icon: cam_gris}).addTo(this.map).bindPopup("Puerto Anfi");
-    
+    var cam_Nelson_Mandela = L.marker([28.1622092, -15.4014788], {icon: cam_amarillo}).addTo(this.map)
+    .bindTooltip("Puerto Nelson Mandela",{direction: 'top'})
+    .on('click', function(e) {
+      $('.close-panel').removeClass('none');
+      $('.camara-panel').removeClass('none');
+    });;
+    var cam_playa_laja = L.marker([28.0600000, -15.4200000], {icon: cam_gris}).addTo(this.map)
+    .bindTooltip("Playa de la Laja",{direction: 'top'})
+    .on('click', function(e) {
+      $('.close-panel').removeClass('none');
+      $('.camara-panel').removeClass('none');
+    });;
+    var cam_telde = L.marker([27.991224, -15.3674457], {icon: cam_verde}).addTo(this.map)
+    .bindTooltip("Telde",{direction: 'top'})
+    .on('click', function(e) {
+      $('.close-panel').removeClass('none');
+      $('.camara-panel').removeClass('none');
+    });;
+    var cam_puerto_arguineguin = L.marker([27.7569610, -15.6835057], {icon: cam_verde}).addTo(this.map)
+    .bindTooltip("Puerto de Arguineguin",{direction: 'top'})
+    .on('click', function(e) {
+      $('.close-panel').removeClass('none');
+      $('.camara-panel').removeClass('none');
+    });;
+    var cam_puerto_anfi = L.marker([27.7720116, -15.7000000], {icon: cam_gris}).addTo(this.map)
+    .bindTooltip("Puerto Anfi",{direction: 'top'})
+    .on('click', function(e) {
+      $('.close-panel').removeClass('none');
+      $('.camara-panel').removeClass('none');
+    });;
   }
 }

@@ -1,0 +1,31 @@
+<div class="camara-panel none" [ngClass]="display">
+  <section class="grid-container">
+    <div class="grid-item1">
+      <h1>Nombre de la camara</h1>
+    </div>
+    <div class="grid-item2">
+      <video src="/assets/imgs/video.mp4" width="500" autoplay loop controls></video>
+      <h1>Controles de la camara</h1>
+    </div>
+    <div class="grid-item3">
+      <div class='circleBase' id='rotateMode'>
+        <div class="top">
+          <button id="up" class="">up</button>
+        </div>
+        <div class="middle">
+          <button id="left" class="">left</button>
+          <button id="right" class="">rigth</button>
+        </div>
+        <div class="bottom">
+          <button id="down" class="">down</button>
+        </div>
+      </div>
+    </div>
+    <div class="grid-item4">
+      <h1>Informacion de la camara</h1>
+    </div>
+  </section>
+</div>
+<div class="">
+  <button class="close-panel none" (click)="close()" [ngClass]="display"></button>
+</div>
